@@ -22,8 +22,14 @@
 
 ## Usage
 
+By default `px` is used.
 ```js
 postcss([ require('postcss-default-unit') ])
 ```
+You can specify the desired unit.
+```js
+postcss([ require('postcss-default-unit')({unit: '%'}) ])
+```
+
 
 See [PostCSS] docs for examples for your environment.
