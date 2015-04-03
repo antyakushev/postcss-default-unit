@@ -1,0 +1,25 @@
+{
+    "name": "postcss-default-unit",
+    "version": "0.0.0",
+    "description": "PostCSS plugin that adds a default unit to numeric css properties",
+    "keywords": ["postcss", "css", "postcssplugin", "default", "unit"],
+    "author": "Anton Yakushev <yakushevanton@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url":  "https://github.com/antyakushev/postcss-default-unit.git"
+    },
+    "dependencies": {
+        "postcss": "^4.1.0",
+        "extend": "2.0.0"
+    },
+    "devDependencies": {
+        "gulp-eslint": "0.8.0",
+        "gulp-mocha":  "2.0.1",
+        "chai":        "2.2.0",
+        "gulp":        "3.8.11"
+    },
+    "scripts": {
+        "test": "gulp"
+    }
+}
