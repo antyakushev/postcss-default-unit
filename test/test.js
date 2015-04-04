@@ -25,8 +25,8 @@ describe('postcss-default-unit', function () {
     });
 
     it('does not add a unit to 0', function () {
-        test('p {margin: 0}',
-             'p {margin: 0}');
+        test('p {margin: 0 0}',
+             'p {margin: 0 0}');
     });
 
     it('adds specified unit', function () {

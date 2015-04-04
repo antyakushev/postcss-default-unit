@@ -19,14 +19,13 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
     function transformDecl(decl) {
         if (!opts.ignore[decl.prop]) {
             decl.value = decl.value.replace(/\d+(\s|$)/g, function(match){
-                return match === '0' ? match : match.replace(/\d+/, '$&' + opts.unit);
+                return parseInt(match) === 0 ? match : match.replace(/\d+/, '$&' + opts.unit);
             });
         }
     }
 
     function transformRule(rule) {
         if (rule.name === 'media') {
-            //check if media query param has no unit
             rule.params = rule.params.replace(/(height|width|resolution)\s*:\s*\d+\)/g, function(match){
                 return match.replace(/\d+/, '$&' + opts.unit);
             });
