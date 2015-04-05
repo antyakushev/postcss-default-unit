@@ -44,9 +44,14 @@ describe('postcss-default-unit', function () {
              'p { width: calc( 100% / 6 + 20px ); }');
     });
 
+    it('leaves ALL expressions in parentheses untouched for now', function () {
+        test('p { width: rgba( 255 , 64 , 64 , 0.3 ); }',
+             'p { width: rgba( 255 , 64 , 64 , 0.3 ); }');
+    });
+
     it('treats freaky border-radius slash notation right', function () {
-        test('border-radius: 40/20',
-             'border-radius: 40px/20px');
+        test('div { border-radius: 40/20 }',
+             'div { border-radius: 40px/20px }');
     });
 
     it('does not add a unit to a property that already have one', function () {

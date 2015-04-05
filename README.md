@@ -31,5 +31,8 @@ You can specify the desired unit.
 postcss([ require('postcss-default-unit')({unit: '%'}) ])
 ```
 
-
 See [PostCSS] docs for examples for your environment.
+
+## Limitations
+
+This plugin does not process expressions in parentheses for now. So it won't add a unit to your `gradient` and won't louse up your `rgba` or `calc`.
