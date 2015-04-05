@@ -44,6 +44,11 @@ describe('postcss-default-unit', function () {
              'p { width: calc( 100% / 6 + 20px ); }');
     });
 
+    it('treats freaky border-radius slash notation right', function () {
+        test('border-radius: 40/20',
+             'border-radius: 40px/20px');
+    });
+
     it('does not add a unit to a property that already have one', function () {
         test('.close-btn {position: absolute; top: 10; right: 20px;}',
              '.close-btn {position: absolute; top: 10px; right: 20px;}');
