@@ -39,6 +39,11 @@ describe('postcss-default-unit', function () {
              'div {z-index: 1}');
     });
 
+    it('leaves calc expression untouched', function () {
+        test('p { width: calc( 100% / 6 + 20px ); }',
+             'p { width: calc( 100% / 6 + 20px ); }');
+    });
+
     it('does not add a unit to a property that already have one', function () {
         test('.close-btn {position: absolute; top: 10; right: 20px;}',
              '.close-btn {position: absolute; top: 10px; right: 20px;}');

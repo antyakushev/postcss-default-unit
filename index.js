@@ -17,7 +17,7 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
     }, opts.ignore);
 
     function transformDecl(decl) {
-        if (!opts.ignore[decl.prop]) {
+        if (!opts.ignore[decl.prop] && decl.value.indexOf("calc(") === -1) {
             decl.value = decl.value.replace(/\d+(\s|$)/g, function(match){
                 return parseInt(match) === 0 ? match : match.replace(/\d+/, '$&' + opts.unit);
             });
