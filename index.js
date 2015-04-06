@@ -13,7 +13,11 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
       'orphans':      true,
       'widows':       true,
       'z-index':      true,
-      'zoom':         true
+      'zoom':         true,
+      'flex':         true,
+      'order':        true,
+      'flex-grow':    true,
+      'flex-shrink':  true
     }, opts.ignore);
 
     function transformDecl(decl) {
