@@ -5,6 +5,7 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
     opts = opts || {};
     opts.unit = opts.unit || 'px';
     opts.ignore = extend({
+      'columns':      true, 
       'column-count': true,
       'fill-opacity': true,
       'font-weight':  true,
