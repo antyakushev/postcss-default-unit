@@ -23,7 +23,7 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
 
     function transformDecl(decl) {
         if (!opts.ignore[decl.prop] && !/\w\(.*\)/.test(decl.value)) {
-            decl.value = decl.value.replace(/#?\d+(\s|\/|$)/g, function(match){
+            decl.value = decl.value.replace(/#?\d+(\s|\/|,|$)/g, function(match){
                 return parseInt(match) === 0 || match[0] === '#' ? match : match.replace(/\d+/, '$&' + opts.unit);
             });
         }

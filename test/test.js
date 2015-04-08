@@ -49,9 +49,14 @@ describe('postcss-default-unit', function () {
              'p { width: calc( 100% / 6 + 20px ); }');
     });
 
-    it('leaves ALL expressions in parentheses untouched for now', function () {
-        test('p { width: rgba( 255 , 64 , 64 , 0.3 ); }',
-             'p { width: rgba( 255 , 64 , 64 , 0.3 ); }');
+    it('leaves all expressions in parentheses untouched for now', function () {
+        test('p { border: 2px dashed rgba( 255 , 64 , 64 , 0.3 ); }',
+             'p { border: 2px dashed rgba( 255 , 64 , 64 , 0.3 ); }');
+    });
+
+    it('processes comma-separated values', function () {
+        test('.bg { background-size: 10 2 ,35 4,35 4, 101 61;}',
+             '.bg { background-size: 10px 2px ,35px 4px,35px 4px, 101px 61px;}');
     });
 
     it('treats freaky border-radius slash notation right', function () {
