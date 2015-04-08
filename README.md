@@ -1,8 +1,9 @@
-# PostCSS Default Unit [![Build Status](https://travis-ci.org/antyakushev/postcss-default-unit.svg)](https://travis-ci.org/antyakushev/postcss-default-unit)
+# PostCSS Default Unit 
+[![Build Status](https://travis-ci.org/antyakushev/postcss-default-unit.svg)][ci] [![NPM version](https://badge.fury.io/js/postcss-default-unit.svg)][npm] [![Dependency Status](https://gemnasium.com/antyakushev/postcss-default-unit.svg)][deps]
+
 
 [PostCSS] plugin that adds a default unit to numeric css properties.
 
-[PostCSS]: https://github.com/postcss/postcss
 
 ```css
 .foo {
@@ -20,6 +21,14 @@
 }
 ```
 
+## Install
+
+With [npm](https://npmjs.org/package/postcss-default-unit) do:
+
+```
+npm install postcss-default-unit --save
+```
+
 ## Usage
 
 By default `px` is used.
@@ -33,6 +42,11 @@ postcss([ require('postcss-default-unit')({unit: '%'}) ])
 
 See [PostCSS] docs for examples for your environment.
 
-## Limitations
+## Issues
 
-This plugin does not process expressions in parentheses for now. So it won't add a unit to your `gradient` and won't louse up your `rgba` or `calc`.
+Now postcss-default-unit ignores property values that contain expressions in parentheses. It won't mess up your `rgba` or `calc`, but it won't also add a unit to your `gradient`, won't even do `2 solid rgb(0,0,0)` → `2px solid rgb(0,0,0)`.
+
+[ci]:       https://travis-ci.org/antyakushev/postcss-default-unit
+[deps]:     https://gemnasium.com/antyakushev/postcss-default-unit
+[npm]:      http://badge.fury.io/js/postcss-default-unit
+[PostCSS]:  https://github.com/postcss/postcss
