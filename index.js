@@ -22,10 +22,17 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
     }, opts.ignore);
 
     function transformDecl(decl) {
-        if (!opts.ignore[decl.prop] && !/\w\(.*\)/.test(decl.value)) {
-            decl.value = decl.value.replace(/#?\d+(\s|\/|,|$)/g, function(match){
-                return parseInt(match) === 0 || match[0] === '#' ? match : match.replace(/\d+/, '$&' + opts.unit);
-            });
+        if (!opts.ignore[decl.prop]) {
+            var parts = postcss.list.space(decl.value);
+
+            for (var i = 0; i < parts.length; i++) {
+                if (!/\w\(.*\)/.test(parts[i])) {
+                    parts[i] = parts[i].replace(/#?\d+(\s|\/|,|$)/g, function(match){
+                        return parseInt(match) === 0 || match[0] === '#' ? match : match.replace(/\d+/, '$&' + opts.unit);
+                    });
+                }
+            }
+            decl.value = parts.join(' ');
         }
     }
 

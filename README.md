@@ -44,7 +44,7 @@ See [PostCSS] docs for examples for your environment.
 
 ## Issues
 
-Now postcss-default-unit ignores property values that contain expressions in parentheses. It won't mess up your `rgba` or `calc`, but it won't also add a unit to your `gradient`, won't even do `2 solid rgb(0,0,0)` → `2px solid rgb(0,0,0)`.
+Now postcss-default-unit ignores expressions in parentheses. It won't mess up your `rgba` or `calc`, but it won't also add a unit to your `gradient`.
 
 [ci]:       https://travis-ci.org/antyakushev/postcss-default-unit
 [deps]:     https://gemnasium.com/antyakushev/postcss-default-unit

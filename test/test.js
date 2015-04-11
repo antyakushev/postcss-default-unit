@@ -50,7 +50,7 @@ describe('postcss-default-unit', function () {
     });
 
     it('leaves all expressions in parentheses untouched for now', function () {
-        test('p { border: 2px dashed rgba( 255 , 64 , 64 , 0.3 ); }',
+        test('p { border: 2 dashed rgba( 255 , 64 , 64 , 0.3 ); }',
              'p { border: 2px dashed rgba( 255 , 64 , 64 , 0.3 ); }');
     });
 
