@@ -39,14 +39,16 @@ You can specify the desired unit.
 ```js
 postcss([ require('postcss-default-unit')({unit: '%'}) ])
 ```
-
+This plugin must be set after the plugins that can modify the values (e.g. [postcss-simple-vars]).
 See [PostCSS] docs for examples for your environment.
 
 ## Issues
 
 Now postcss-default-unit ignores expressions in parentheses. It won't mess up your `rgba` or `calc`, but it won't also add a unit to your `gradient`.
 
-[ci]:       https://travis-ci.org/antyakushev/postcss-default-unit
-[deps]:     https://gemnasium.com/antyakushev/postcss-default-unit
-[npm]:      http://badge.fury.io/js/postcss-default-unit
-[PostCSS]:  https://github.com/postcss/postcss
+
+[ci]:                  https://travis-ci.org/antyakushev/postcss-default-unit
+[deps]:                https://gemnasium.com/antyakushev/postcss-default-unit
+[npm]:                 http://badge.fury.io/js/postcss-default-unit
+[PostCSS]:             https://github.com/postcss/postcss
+[postcss-simple-vars]: https://github.com/postcss/postcss-simple-vars

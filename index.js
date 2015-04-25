@@ -22,10 +22,11 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
     }, opts.ignore);
 
     function replacer(match) {
+
         var is0 =         parseInt(match) === 0,
-            isColor =     match[0] === '#',
             hasTimeUnit = /^m?s$/.test(opts.unit);
-        if (is0 && !hasTimeUnit || isColor) {
+
+        if (is0 && !hasTimeUnit) {
             return match;
         } else {
             return match.replace(/\d+/, '$&' + opts.unit);
@@ -37,8 +38,12 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
             var parts = postcss.list.space(decl.value);
 
             for (var i = 0; i < parts.length; i++) {
-                if (!/\w\(.*\)/.test(parts[i])) {
-                    parts[i] = parts[i].replace(/#?\d+(\s|\/|,|$)/g, replacer);
+
+                var isColor = /#[0-9a-fA-F]+/.test(parts[i]),
+                    hasParenths =  /\w\(.*\)/.test(parts[i]);
+
+                if (!hasParenths && !isColor) {
+                    parts[i] = parts[i].replace(/\d+(\s|\/|,|$)/g, replacer);
                 }
             }
             decl.value = parts.join(' ');

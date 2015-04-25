@@ -45,8 +45,8 @@ describe('postcss-default-unit', function () {
     });
 
     it('leaves numerical colors untouched', function () {
-        test('i {background-color: #333 }',
-             'i {background-color: #333 }');
+        test('i {background-color: #ec9214 }',
+             'i {background-color: #ec9214 }');
     });
 
     it('leaves calc expression untouched', function () {
@@ -88,5 +88,4 @@ describe('postcss-default-unit', function () {
         test('@media screen and (max-width: 980px) { #main {width: 95%; } }',
              '@media screen and (max-width: 980px) { #main {width: 95%; } }');
     });
-
 });
