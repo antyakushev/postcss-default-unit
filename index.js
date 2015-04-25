@@ -21,15 +21,24 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
       'flex-shrink':  true
     }, opts.ignore);
 
+    function replacer(match) {
+        var is0 =         parseInt(match) === 0,
+            isColor =     match[0] === '#',
+            hasTimeUnit = /^m?s$/.test(opts.unit);
+        if (is0 && !hasTimeUnit || isColor) {
+            return match;
+        } else {
+            return match.replace(/\d+/, '$&' + opts.unit);
+        }
+    }
+
     function transformDecl(decl) {
         if (!opts.ignore[decl.prop]) {
             var parts = postcss.list.space(decl.value);
 
             for (var i = 0; i < parts.length; i++) {
                 if (!/\w\(.*\)/.test(parts[i])) {
-                    parts[i] = parts[i].replace(/#?\d+(\s|\/|,|$)/g, function(match){
-                        return parseInt(match) === 0 || match[0] === '#' ? match : match.replace(/\d+/, '$&' + opts.unit);
-                    });
+                    parts[i] = parts[i].replace(/#?\d+(\s|\/|,|$)/g, replacer);
                 }
             }
             decl.value = parts.join(' ');

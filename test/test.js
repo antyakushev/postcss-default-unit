@@ -24,14 +24,19 @@ describe('postcss-default-unit', function () {
              'a {margin: 10px auto}');
     });
 
+    it('adds specified unit', function () {
+        test('i {font-size: 1.5}',
+             'i {font-size: 1.5em}', {unit: 'em'});
+    });
+
     it('does not add a unit to 0', function () {
         test('p {margin: 0 0}',
              'p {margin: 0 0}');
     });
 
-    it('adds specified unit', function () {
-        test('i {font-size: 1.5}',
-             'i {font-size: 1.5em}', {unit: 'em'});
+    it('does add a time unit to 0', function () {
+        test('p {transition-delay: 0}',
+             'p {transition-delay: 0s}', {unit: 's'});
     });
 
     it('leaves numerical properties untouched', function () {
