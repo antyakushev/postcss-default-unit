@@ -1,3 +1,6 @@
+## 0.0.5
+* Update according to the plugin guidelines
+
 ## 0.0.4
 * Fix recognizing alphanumerical colors.
 
@@ -9,3 +12,5 @@
 
 ## 0.0.1
 * First version of a plugin
+
+Derived from [rework-default-unit](https://github.com/fgnass/rework-default-unit) v0.0.1

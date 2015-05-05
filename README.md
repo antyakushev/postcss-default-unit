@@ -23,7 +23,7 @@
 
 ## Install
 
-With [npm](https://npmjs.org/package/postcss-default-unit) do:
+With [npm] do:
 
 ```
 npm install postcss-default-unit --save
