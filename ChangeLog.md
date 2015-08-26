@@ -1,4 +1,7 @@
-## 0.0.6
+## 1.0.0
+* Bump major version
+
+## 0.0.6 — Deprecated
 * Update dependencies
 
 ## 0.0.5
