@@ -60,8 +60,8 @@ describe('postcss-default-unit', function () {
     });
 
     it('processes comma-separated values', function () {
-        test('.bg { background-size: 10 2 ,35 4,35 4, 101 61;}',
-             '.bg { background-size: 10px 2px ,35px 4px,35px 4px, 101px 61px;}');
+        test('.bg { background-size: 10 2 ,35 4,35 4, 91 61;}',
+             '.bg { background-size: 10px 2px ,35px 4px,35px 4px, 91px 61px;}');
     });
 
     it('treats freaky border-radius slash notation right', function () {
@@ -84,8 +84,10 @@ describe('postcss-default-unit', function () {
              '@media screen and (max-width: 980px) and (min-width: 480px) { }');
     });
 
-    it('does not add unit to media query parameter that already have one', function () {
-        test('@media screen and (max-width: 980px) { #main {width: 95%; } }',
-             '@media screen and (max-width: 980px) { #main {width: 95%; } }');
-    });
+    it('does not add unit to media query parameter that already have one',
+        function () {
+            test('@media screen and (max-width: 980px) {#main {width: 95%;}}',
+                 '@media screen and (max-width: 980px) {#main {width: 95%;}}');
+        }
+    );
 });
