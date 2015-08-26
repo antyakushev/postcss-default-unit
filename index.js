@@ -61,8 +61,8 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
     }
 
     function defaultUnit(style) {
-        style.eachDecl(transformDecl);
-        style.eachAtRule(transformRule);
+        style.walkDecls(transformDecl);
+        style.walkAtRules(transformRule);
     }
 
     return defaultUnit;
