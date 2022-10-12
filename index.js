@@ -10,6 +10,7 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
         'columns':      true,
         'column-count': true,
         'fill-opacity': true,
+        'stroke-opacity':   true,
         'font-weight':  true,
         'line-height':  true,
         'opacity':      true,
