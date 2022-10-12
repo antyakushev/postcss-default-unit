@@ -20,7 +20,8 @@ module.exports = postcss.plugin('postcss-default-unit', function (opts) {
         'flex':         true,
         'order':        true,
         'flex-grow':    true,
-        'flex-shrink':  true
+        'flex-shrink':  true,
+        'grid-area':    true  
     }, opts.ignore);
 
     function replacer(match) {
